@@ -4,14 +4,14 @@ import MatrixGridController from '../components/Matrix/MatrixGridController'
 import SelectButton from '../components/SelectButton'
 import { createInitialMatrix } from '../lib/MatrixModifers'
 import MatrixOperations, {
-    OP_TRANSPOSE,
-    OP_DETERMINANT,
-    OP_SQUARE,
-    OP_CUBE,
-    OP_ADD,
-    OP_SUBTRACT,
-    OP_MULTIPLY,
-    OP_INVERSE
+    OPT_TRANSPOSE,
+    OPT_DETERMINANT,
+    OPT_SQUARE,
+    OPT_CUBE,
+    OPT_ADD,
+    OPT_SUBTRACT,
+    OPT_MULTIPLY,
+    OPT_INVERSE
 } from '../lib/MatrixOperations'
 
 class Calculator extends React.Component {
@@ -70,21 +70,21 @@ class Calculator extends React.Component {
                     </div>
 
                     <ButtonRow>
-                        <SelectButton onSelect={this.swapMatrices.bind( this )}>Swap matrices</SelectButton>
+                        <SelectButton onSelect={this.swapMatrices.bind( this )}>Ubah Matrik</SelectButton>
                     </ButtonRow>
 
-                    <ButtonRow title="Single matrix operations (using first matrix)">
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_TRANSPOSE )}>Transpose</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_SQUARE )}>^ 2</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_CUBE )}>^ 3</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_DETERMINANT )}>Find determinant</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_INVERSE )}>Find inverse matrix</SelectButton>
+                    <ButtonRow title="Operasi Tunggal Matriks (yang di gunakan hanya matriks kiri)">
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_TRANSPOSE )}>Transpos</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_SQUARE )}>pangkat 2</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_CUBE )}>pangkat 3</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_DETERMINANT )}>Mencari determinan</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_INVERSE )}>Mencari inverse matrix</SelectButton>
                     </ButtonRow>
 
-                    <ButtonRow title="Arithmetic operations">
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_ADD )}>Add</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_SUBTRACT )}>Subtract</SelectButton>
-                        <SelectButton onSelect={this.createOpSelectHandler( OP_MULTIPLY )}>Multiply</SelectButton>
+                    <ButtonRow title="Operasi Aritmatik">
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_ADD )}>Tambah</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_SUBTRACT )}>Kurang</SelectButton>
+                        <SelectButton onSelect={this.createOpSelectHandler( OPT_MULTIPLY )}>Kali</SelectButton>
                     </ButtonRow>
 
                 </div>
@@ -105,15 +105,15 @@ class Calculator extends React.Component {
         if ( error ) {
             return (
                 <div className='container boxContainer' style={{ borderTop: '5px solid #b71c1c'}}>
-                    <div className='font-2xl mb-4'>Result</div>
+                    <div className='font-2xl mb-4'>Hasil</div>
                     {error.toString()}
                 </div>
             )
         }
         else if ( matrix ) {
             return (
-                <div className='container boxContainer' style={{ borderTop: '5px solid #009688'}}>
-                    <div className='font-2xl mb-4'>Result</div>
+                <div className='container boxContainer' style={{ borderTop: '5px solid #C58940'}}>
+                    <div className='font-2xl mb-4'>Hasil</div>
                     <MatrixGridController 
                         matrix={matrix} 
                         readonly>
@@ -121,8 +121,8 @@ class Calculator extends React.Component {
 
                     <ButtonRow>
                         {/* When setting matrix, we need to copy it first */}
-                        <SelectButton onSelect={() => this.setState({ matrixA: [...matrix] })}>Set as Matrix A</SelectButton>
-                        <SelectButton onSelect={() => this.setState({ matrixB: [...matrix] })}>Set as Matrix B</SelectButton>
+                        <SelectButton onSelect={() => this.setState({ matrixA: [...matrix] })}>Atur ke matriks A</SelectButton>
+                        <SelectButton onSelect={() => this.setState({ matrixB: [...matrix] })}>Atur ke matriks B</SelectButton>
                     </ButtonRow>
                 </div>
             )

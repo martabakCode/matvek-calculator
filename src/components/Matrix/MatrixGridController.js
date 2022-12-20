@@ -50,11 +50,11 @@ export default class MatrixGridController extends React.Component {
         MatrixModifiers.setElementValue( this.state.matrix, row, col, Number( this.state.matrix[row][col] ) || 0 )
     )
 
-    expandMatrixCols = () => this.setMatrixState( MatrixModifiers.addColumn( this.state.matrix ) )
+    expandMatrixCols = () => this.setMatrixState( MatrixModifiers.tambahKolom( this.state.matrix ) )
 
-    expandMatrixRows = () => this.setMatrixState( MatrixModifiers.addRow( this.state.matrix ) )
+    expandMatrixRows = () => this.setMatrixState( MatrixModifiers.tambahBaris( this.state.matrix ) )
 
-    expandMatrixRowsAndCols = () => this.setMatrixState( MatrixModifiers.addRowAndColumn( this.state.matrix ) ) 
+    expandMatrixRowsAndCols = () => this.setMatrixState( MatrixModifiers.tambahBarisDanKolom( this.state.matrix ) ) 
 
     removeRow = index => this.setMatrixState( MatrixModifiers.removeRow( this.state.matrix, index ) )
 

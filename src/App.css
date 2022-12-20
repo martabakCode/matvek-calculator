@@ -10,19 +10,19 @@
 }
 
 .button.light {
-    border: 1px solid #BDBDBD;
-    box-shadow: 2px 2px 0 #BDBDBD;
+    border: 1px solid #E5BA73;
+    box-shadow: 2px 2px 0 #E5BA73;
 }
 
 .button:hover {
-    border: 1px solid #00695C;
-    box-shadow: 3px 3px 0 #00695C;
+    border: 1px solid #C58940;
+    box-shadow: 3px 3px 0 #C58940;
     cursor: pointer;
 }
 
 .button:active {
-    outline: 1px solid #009688;
-    border: 1px solid #009688;
+    outline: 1px solid #FAEAB1;
+    border: 1px solid #FAEAB1;
     box-shadow: none;
 }
 
@@ -45,8 +45,8 @@
 }
 
 .textInput:hover, .textInput:focus  {
-    border: 1px solid #00695C;
-    box-shadow: 3px 3px 0 #00695C;
+    border: 1px solid #C58940;
+    box-shadow: 3px 3px 0 #C58940;
 }
 
 .highlight {

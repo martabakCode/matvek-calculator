@@ -1,13 +1,13 @@
 
 export default class MatrixModifiers {
 
-    static addColumn( matrix ) {
+    static tambahKolom( matrix ) {
         if ( !matrixCanExpandCols( matrix ) ) return;
 
         return matrix.map( row => [ ...row, 0 ])
     }
 
-    static addRow( matrix ) {
+    static tambahBaris( matrix ) {
         if ( !matrixCanExpandRows( matrix ) ) return;
 
         matrix.push( new Array( matrix[0].length ).fill( 0 ) )
@@ -15,7 +15,7 @@ export default class MatrixModifiers {
         return matrix
     }
 
-    static addRowAndColumn( matrix ) {
+    static tambahBarisDanKolom( matrix ) {
         if ( !matrixCanExpandCols( matrix ) || 
             !matrixCanExpandRows( matrix ) ) 
             return;

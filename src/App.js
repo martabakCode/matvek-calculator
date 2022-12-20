@@ -17,7 +17,7 @@ function App() {
             
             <div className='footer'>
                 <div className='container'>
-                    Aivaras Kriksciunas, 2020
+                    Martabak Coder, 2022
                 </div>
             </div>
         </BrowserRouter>

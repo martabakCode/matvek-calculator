@@ -8,12 +8,11 @@ export default function Navbar() {
         <div id={styles.navbar} className='w-full'>
             <div className='container py-4 flex'>
                 <div id={styles.navbarTitle}>
-                    Matrix calculator
+                    Martabak Coder
                 </div>
 
                 <div id={styles.navbarLinkContainer}>
-                    <Link to='/matrix' className={styles.navbarLink}>Matrix calculator</Link>
-                    <Link to='/logic' className={styles.navbarLink}>Boolean operations</Link>
+                    <Link to='/matrix' className={styles.navbarLink}>Kalkulator Matriks</Link>
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 import { createInitialMatrix } from './MatrixModifers'
 
-export const OP_TRANSPOSE = "transpose"
-export const OP_DETERMINANT = "determinant"
-export const OP_SQUARE = "square"
-export const OP_CUBE = "cube"
-export const OP_ADD = "add"
-export const OP_SUBTRACT = "subtract"
-export const OP_MULTIPLY = "multiply"
-export const OP_INVERSE = "inverse"
+export const OPT_TRANSPOSE = "transpose"
+export const OPT_DETERMINANT = "determinant"
+export const OPT_SQUARE = "square"
+export const OPT_CUBE = "cube"
+export const OPT_ADD = "add"
+export const OPT_SUBTRACT = "subtract"
+export const OPT_MULTIPLY = "multiply"
+export const OPT_INVERSE = "inverse"
 
 export default class MatrixOperations {
 
@@ -17,28 +17,28 @@ export default class MatrixOperations {
         try {
 
             switch( operation ) {
-                case OP_TRANSPOSE: 
+                case OPT_TRANSPOSE: 
                     resultMatrix = MatrixOperations.transpose( matrixA )
                     break;
-                case OP_ADD: 
+                case OPT_ADD: 
                     resultMatrix = MatrixOperations.add( matrixA, matrixB )
                     break;
-                case OP_SUBTRACT:
+                case OPT_SUBTRACT:
                     resultMatrix = MatrixOperations.subtract( matrixA, matrixB )
                     break;
-                case OP_MULTIPLY: 
+                case OPT_MULTIPLY: 
                     resultMatrix = MatrixOperations.multiply( matrixA, matrixB )
                     break;
-                case OP_SQUARE:
+                case OPT_SQUARE:
                     resultMatrix = MatrixOperations.multiply( matrixA, matrixA )
                     break;
-                case OP_CUBE:
+                case OPT_CUBE:
                     resultMatrix = MatrixOperations.multiply( MatrixOperations.multiply( matrixA, matrixA ), matrixA )
                     break;
-                case OP_DETERMINANT: 
+                case OPT_DETERMINANT: 
                     resultMatrix = MatrixOperations.findDeterminant( matrixA )
                     break;
-                case OP_INVERSE:
+                case OPT_INVERSE:
                     resultMatrix = MatrixOperations.findInverse( matrixA )
                     break;
                 default:
@@ -66,7 +66,7 @@ export default class MatrixOperations {
 
     static add( a, b ) {
         if ( !areMatricesSameSize( a, b ) ) 
-            throw new Error( "Cannot add: matrices are not same size!" )
+            throw new Error( "Tidak dapat menambah: ukuran matriks tidak sama!" )
         
         let result = a.map( ( row, rowIndex ) => 
             row.map( ( el, colIndex ) => el + b[rowIndex][colIndex] ) )
@@ -76,7 +76,7 @@ export default class MatrixOperations {
 
     static subtract( a, b ) {
         if ( !areMatricesSameSize( a, b ) ) 
-            throw new Error( "Cannot subtract: matrices are not same size!" )
+            throw new Error( "Tidak dapat mengurangi: ukuran matriks tidak sama!" )
         
         let result = a.map( ( row, rowIndex ) => 
             row.map( ( el, colIndex ) => el - b[rowIndex][colIndex] ) )
@@ -86,7 +86,7 @@ export default class MatrixOperations {
 
     static multiply( a, b ) {
         if ( !canMultiplyMatrices( a, b ) ) {
-            throw new Error( "Cannot multiply matrices" )
+            throw new Error( "Tidak dapat mengkali matriks" )
         }
 
         let result = createInitialMatrix( getRowCount( a ), getColCount( b ) )
@@ -115,7 +115,7 @@ export default class MatrixOperations {
 
     static findDeterminant( m ) {
         if ( getColCount( m ) !== getRowCount( m ) ) {
-            throw new Error( "Cannot find determinant: matrix is not square" )
+            throw new Error( "Tidak dapat menemukan determinan: matriks tidak berbentuk persegi" )
         }
 
         if ( getColCount( m ) === 1 ) {
